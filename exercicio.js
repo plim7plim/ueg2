@@ -39,3 +39,5 @@ function calculaMedia(){
 }
 
 calculaMedia();
+
+console.log();
