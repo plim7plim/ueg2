@@ -4,54 +4,60 @@ let soma = 0;
 
 let maior = 0;
 let nomeMaior = "";
+
 let menor = Infinity;
-let nomeMenor="";
+let nomeMenor = "";
 
-let abaixoMedia="";
-let acimaMedia="";
+function calculaMedia() {
 
-function calculaMedia(){
-    for (let i = 1; i<=2; i++){
-        let nome = prompt("nome : " + i + " : ")
-        let nota =  Number(prompt("Digite a nota do aluno: " + nome + " : "));
-        
-        console.log("Nome: " + nome);
+    for (let i = 1; i <= 15; i++) {
+
+        let nome = prompt("nome : " + i + " : ");
+        let nota = Number(prompt("Digite a nota do aluno: " + nome + " : "));
 
         soma = soma + nota;
-    
-        if (nota > maior){
-            maior = nota //seta maior
-            nomeMaior=nome;
+
+        if (nota > maior) {
+            maior = nota;
+            nomeMaior = nome;
         }
-        if (nota<menor){
-            menor = nota //seta menor
+
+        if (nota < menor) {
+            menor = nota;
             nomeMenor = nome;
         }
-        media = soma/2;
-
-        if(nota> media){
-            acimaMedia = nome + nota
-        }
-
-
-        if(nota < media){
-            abaixoMedia = nome + " " + nota 
-        }
     }
-    
-    
-    console.log("maior " + maior);
-    console.log(acimaMedia)
+
+    let media = soma / 15;
+
+    console.log("\nRESULTADOS");
+    console.log("Média da turma: " + media);
+
+    console.log("\nMaior nota: " + maior);
     console.log("Maior aluno: " + nomeMaior);
 
-    console.log("menor " + menor);
-    console.log(abaixoMedia)
+    console.log("\nMenor nota: " + menor);
     console.log("Menor aluno: " + nomeMenor);
 
+    console.log("\n===== ALUNOS =====");
 
-    console.log("media " + media);
-    
-    
+    for (let i = 1; i <= 15; i++) {
+
+        let nome = prompt("nome : " + i + " : ");
+        let nota = Number(prompt("Digite a nota do aluno: " + nome + " : "));
+
+        if (nota > media) {
+            console.log(nome + " acima da média " + nota + " pontos | média " + media);
+        }
+
+        if (nota < media) {
+            console.log(nome + " abaixo da média " + nota + " pontos | média " + media);
+        }
+
+        if (nota == media) {
+            console.log(nome + " está na média " + nota + " pontos | média " + media);
+        }
+    }
 }
 
 calculaMedia();
