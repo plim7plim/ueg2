@@ -1,0 +1,15 @@
+vetor - estrutura completa
+vetor [3] = 5
+vetor ++ = faz o vetor andar 
+
+dinamicos 
+diferentes variaveis 
+começamos em 0
+
+tipo nome = [];
+
+acessar : notas1[0]
+consulta o vetor notas 1 e procura o primeiro indice 
+
+
+crivo de aristoteles sla negocio de prova 
