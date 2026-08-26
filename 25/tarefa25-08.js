@@ -1,6 +1,8 @@
 const tamanhoConjunto = document.getElementById("inTamanhoConjunto");
 const btn = document.getElementById("btnEvento");
 const saidaConjunto = document.getElementById("saidaConjunto");
+const numeroBuscado = document.getElementById("inNumeroBuscado");
+const saidaBusca = document.getElementById("saidaBusca");
 
 const conjunto = [];
 
@@ -16,4 +18,24 @@ function eventoCriarConjunto() { //evento do botão
   criarConjunto (conjunto, tamanho); //chama a função criarConjunto passando o array e o tamanho
   const saida = "Conjunto = [" + conjunto.join("|") + "]"; //cria a string de saída com os elementos do array, // join é usado para juntar os elementos do array em uma string, separados por "| "
   saidaConjunto.innerHTML = saida; //mostra a saída no HTML
+}
+
+function buscaSequencial(array, numero) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === numero) { //item do array for = ao numero 
+      return i; // Retorna o índice do elemento encontrado 0-1-2-3-4...
+    }
+  }
+  return -1; // Retorna -1 se o elemento não for encontrado
+}
+
+function eventoBusca() {
+  const numero = Number(numeroBuscado.value);
+  const indice = buscaSequencial(conjunto, numero);
+
+  if (indice !== -1) {
+    saidaBusca.innerHTML = `Número ${numero} encontrado no índice ${indice}`;
+  } else {
+    saidaBusca.innerHTML = `Número ${numero} não encontrado`;
+  }
 }
