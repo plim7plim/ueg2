@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universidades e Cursos de Goiás</title>
+    <style>
+      body {
+        font-family: Georgia, "Times New Roman", serif;
+        margin: 20px;
+        color: #000;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      h2 {
+        font-size: 20px;
+        margin-top: 30px;
+      }
+      h3 {
+        font-size: 17px;
+        margin-top: 25px;
+      }
+      img.logo {
+        max-height: 60px;
+        margin: 10px 0;
+      }
+      table {
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      caption {
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 4px 8px;
+      }
+      th {
+        background-color: #ffffff;
+      }
+      th#curso,
+      td.curso {
+        background-color: lightblue;
+      }
+      th#modalidade,
+      td.modalidade {
+        background-color: rgb(238, 144, 144);
+      }
+      tfoot td {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Universidades e Cursos de Goiás</h1>
+
+    <p>
+      Conheça algumas das principais instituições de ensino superior presentes
+      no estado de Goiás.
+    </p>
+
+    <p>
+      Nesta página são apresentadas informações sobre a
+      <strong>Universidade Estadual de Goiás</strong>, a
+      <strong>Universidade Federal de Goiás</strong> e a
+      <strong>PUC Goiás</strong>.
+    </p>
+
+    <h2>Universidade Estadual de Goiás - UEG</h2>
+    <img
+      class="logo"
+      src="img/ueg.png"
+      alt="Logo da Universidade Estadual de Goiás"
+    />
+    <p>
+      A Universidade Estadual de Goiás é uma instituição pública de ensino
+      superior presente em diferentes municípios do estado.
+    </p>
+    <p>
+      <a href="https://www.ueg.br" target="_blank">Acessar o site da UEG</a>
+    </p>
+
+    <h2>Universidade Federal de Goiás - UFG</h2>
+    <img
+      class="logo"
+      src="img/ufg.png"
+      alt="Logo da Universidade Federal de Goiás"
+    />
+    <p>
+      A Universidade Federal de Goiás é uma instituição pública de ensino
+      superior com atuação em diferentes áreas do conhecimento.
+    </p>
+    <p>
+      <a href="https://www.ufg.br" target="_blank">Acessar o site da UFG</a>
+    </p>
+
+    <h2>Pontifícia Universidade Católica de Goiás - PUC Goiás</h2>
+    <img class="logo" src="img/puc.png" alt="Logo da PUC Goiás" />
+    <p>
+      A PUC Goiás é uma instituição de ensino superior localizada em Goiânia,
+      oferecendo cursos em diversas áreas.
+    </p>
+    <p>
+      <a href="https://www.puc.go.br" target="_blank"
+        >Acessar o site da PUC Goiás</a
+      >
+    </p>
+
+    <h2>Cursos de Graduação</h2>
+
+    <table border="1">
+      <caption>
+        Cursos de graduação - Universidades de Goiás
+      </caption>
+      <colgroup>
+        <col />
+        <col style="background-color: lightblue" />
+        <col />
+        <col style="background-color: rgb(238, 144, 144)" />
+        <col />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Universidade</th>
+          <th id="curso">Curso</th>
+          <th>Cidade</th>
+          <th id="modalidade">Modalidade</th>
+          <th>Duração</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td rowspan="2">UEG</td>
+          <td class="curso">Sistemas de Informação</td>
+          <td>Itaberaí</td>
+          <td class="modalidade">Presencial</td>
+          <td>4 anos</td>
+        </tr>
+        <tr>
+          <td class="curso">Administração</td>
+          <td>Anápolis</td>
+          <td class="modalidade">Presencial</td>
+          <td>4 anos</td>
+        </tr>
+        <tr>
+          <td rowspan="2">UFG</td>
+          <td class="curso">Ciência da Computação</td>
+          <td>Goiânia</td>
+          <td class="modalidade">Presencial</td>
+          <td>4 anos</td>
+        </tr>
+        <tr>
+          <td class="curso">Engenharia Ambiental</td>
+          <td>Goiânia</td>
+          <td class="modalidade">Presencial</td>
+          <td>5 anos</td>
+        </tr>
+        <tr>
+          <td>PUC Goiás</td>
+          <td class="curso">Engenharia de Software</td>
+          <td>Goiânia</td>
+          <td class="modalidade">Presencial</td>
+          <td>4 anos</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="4">Total de cursos apresentados</td>
+          <td>5</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
