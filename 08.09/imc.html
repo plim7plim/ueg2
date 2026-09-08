@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular imc</title> 
+</head>
+<body>
+    <h1>site pra calcular IMC do paciente</h1> <hr> <!--Traça um risco-->
+    <label for="idNomeCompleto">Digite seu nome completo:</label> 
+    <input type="text" id="idNomeCompleto"> <br> <!--Input String-->
+
+    <label for="idPeso">Digite seu peso:</label>
+    <input type="number" id="idPeso"> <br> <!--Input Number-->  
+
+    <label for="idAltura">Digite sua altura:</label>    
+    <input type="number" id="idAltura"> <br> <!--Input Number-->
+
+    <button type="button" id="btnCalcular" onclick="calcularIMC()">Clique aqui para calcular</button> <br> <!--Botão que chama a função calcularIMC()-->
+    <h1 id="saidaIMC"> </h1> <!--Onde vai aparecer o resultado do IMC-->
+
+    <script src="js/imc.js"></script>
+</body>
+</html>
