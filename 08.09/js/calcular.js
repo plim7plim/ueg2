@@ -9,7 +9,7 @@ const btnPotencia = document.getElementById('btnPotencia');
 const btnRaiz = document.getElementById('btnRaiz');
 
 
-const saidaIMC = document.getElementById('resultado');
+const saidaResultado = document.getElementById('resultado');
 
 function somar() {
     const num1 = Number(numeroUm.value);
@@ -17,7 +17,7 @@ function somar() {
 
     const soma = num1 + num2;
 
-    saidaIMC.innerHTML = `A soma de ${num1} + ${num2} é: ${soma}`;
+    saidaResultado.innerHTML = `A soma de ${num1} + ${num2} é: ${soma}`;
 }
 
 function subtrair() {
@@ -26,7 +26,7 @@ function subtrair() {
 
     const subtracao = num1 - num2;
 
-    saidaIMC.innerHTML = `A subtração de ${num1} - ${num2} é: ${subtracao}`;
+    saidaResultado.innerHTML = `A subtração de ${num1} - ${num2} é: ${subtracao}`;
 }
 
 function multiplicar() {
@@ -35,7 +35,7 @@ function multiplicar() {
 
     const multiplicacao = num1 * num2;
 
-    saidaIMC.innerHTML = `A multiplicação de ${num1} × ${num2} é: ${multiplicacao}`;
+    saidaResultado.innerHTML = `A multiplicação de ${num1} × ${num2} é: ${multiplicacao}`;
 }
 
 function dividir() {
@@ -44,7 +44,7 @@ function dividir() {
 
     const divisao = num1 / num2;
 
-    saidaIMC.innerHTML = `A divisão de ${num1} ÷ ${num2} é: ${divisao}`;
+    saidaResultado.innerHTML = `A divisão de ${num1} ÷ ${num2} é: ${divisao}`;
 }
 
 function potencia() {
@@ -53,7 +53,7 @@ function potencia() {
 
     const potencia = num1 ** num2;
 
-    saidaIMC.innerHTML = `A potência de ${num1} elevado a ${num2} é: ${potencia}`;
+    saidaResultado.innerHTML = `A potência de ${num1} elevado a ${num2} é: ${potencia}`;
 }
 
 function raiz() {
@@ -61,5 +61,5 @@ function raiz() {
 
     const raizQuadrada = Math.sqrt(num1);
 
-    saidaIMC.innerHTML = `A raiz quadrada de ${num1} é: ${raizQuadrada}`;
+    saidaResultado.innerHTML = `A raiz quadrada de ${num1} é: ${raizQuadrada}`;
 }
