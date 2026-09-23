@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contracheque GYNAlimentos</title>
+</head>
+<body>
+    <h1>GYNAlimentos - Contracheque</h1> <hr>
+
+    <label for="idMatricula">Matrícula:</label>
+    <input type="text" id="idMatricula"> <br>
+
+    <label for="idNome">Nome:</label>
+    <input type="text" id="idNome"> <br>
+
+    <label for="idDependentes">Número de dependentes:</label>
+    <input type="number" id="idDependentes" min="0" value="0"> <br>
+
+    <label for="idSalarioBase">Salário base (R$):</label>
+    <input type="number" id="idSalarioBase" step="0.01"> <br>
+
+    <label for="idProducao">Produção (itens):</label>
+    <input type="number" id="idProducao" min="0"> <br>
+
+    <button type="button" onclick="gerar()">Gerar contracheque</button>
+    <hr>
+
+    <pre id="saida"></pre>
+
+    <script src="js/funcionario.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

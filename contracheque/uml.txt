@@ -1,0 +1,17 @@
++------------------------------------------+
+|               Funcionario                |
++------------------------------------------+
+| - matricula: String                      |
+| - nome: String                           |
+| - dependentes: Number                    |
+| - salarioBase: Number                    |
+| - producao: Number                       |
++------------------------------------------+
+| - calcularGratificacao(): Number         |
+| - calcularSalarioBruto(): Number         |
+| - calcularDescontoINSS(): Number         |
+| - calcularDescontoDependentes(): Number  |
+| - calcularDescontoIRPF(): Number         |
+| - calcularSalarioLiquido(): Number       |
+| + gerarContracheque(): String            |
++------------------------------------------+

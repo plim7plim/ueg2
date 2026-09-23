@@ -1,0 +1,13 @@
++-------------------------------+
+|           Paciente            |
++-------------------------------+
+| - nome: String                |
+| - peso: Number                |
+| - altura: Number              |
+| - sexo: String                |
++-------------------------------+
+| - calcularIMC(): Number       |
+| - faixaDeRisco(): String      |
+| - pesoIdeal(): Number         |
+| + exibirDados(): String       |
++-------------------------------+
