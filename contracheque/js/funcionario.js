@@ -1,6 +1,6 @@
 const DESCONTO_POR_DEPENDENTE = 123.0;
 
-class Funcionario {
+class Funcionario { //metodos privados 
     #matricula;
     #nome;
     #dependentes;
@@ -15,16 +15,19 @@ class Funcionario {
         this.#producao = producao;
     }
 
+    // Define a gratificação de acordo com a quantidade de itens produzidos.
     #calcularGratificacao() {
         if (this.#producao <= 1000) return 500.0;
         if (this.#producao <= 2000) return 1250.0;
         return 2250.0;
     }
 
+    // Soma o salário base com a gratificação.
     #calcularSalarioBruto() {
         return this.#salarioBase + this.#calcularGratificacao();
     }
 
+    // Escolhe a alíquota pela faixa do salário bruto e calcula o INSS.
     #calcularDescontoINSS() {
         const bruto = this.#calcularSalarioBruto();
         let aliquota;
@@ -35,10 +38,12 @@ class Funcionario {
         return bruto * aliquota;
     }
 
+    // Multiplica o número de dependentes pelo desconto de cada dependente.
     #calcularDescontoDependentes() {
         return this.#dependentes * DESCONTO_POR_DEPENDENTE;
     }
 
+    // Escolhe a alíquota do IRPF pela faixa do salário bruto.
     #calcularDescontoIRPF() {
         const bruto = this.#calcularSalarioBruto();
         let aliquota;
@@ -48,26 +53,40 @@ class Funcionario {
         else if (bruto <= 4664.68) aliquota = 0.225;
         else aliquota = 0.275;
 
+        // Retira o desconto dos dependentes do valor do imposto.
         const irpf = bruto * aliquota - this.#calcularDescontoDependentes();
         return irpf > 0 ? irpf : 0; // não pode ficar negativo
     }
 
+    // Retira o INSS e o IRPF do salário bruto.
     #calcularSalarioLiquido() {
         return this.#calcularSalarioBruto() - this.#calcularDescontoINSS() - this.#calcularDescontoIRPF();
     }
 
+    // Monta o texto do contracheque com os dados e os valores calculados.
     gerarContracheque() {
-        const r = (valor) => "R$ " + valor.toFixed(2);
+        // Recebe um valor, coloca R$ antes dele e mostra duas casas decimais.
+        function formatarValor(valor) {
+            return "R$ " + valor.toFixed(2);
+        }
+
+        // As crases permitem escrever um texto com várias linhas.
+        // Dentro de ${...}, o JavaScript calcula a expressão e coloca o resultado no texto.
+        // Exemplo: ${formatarValor(500)} coloca R$ 500.00 no contracheque.
         return `GYNALIMENTOS - CONTRACHEQUE
-Matrícula: ${this.#matricula}
-Nome: ${this.#nome}
-Número de dependentes: ${this.#dependentes}
-Salário base: ${r(this.#salarioBase)}
-Gratificação: ${r(this.#calcularGratificacao())}
-Salário bruto: ${r(this.#calcularSalarioBruto())}
-Desconto INSS: ${r(this.#calcularDescontoINSS())}
-Desconto IRPF: ${r(this.#calcularDescontoIRPF())}
-Desconto por dependentes: ${r(this.#calcularDescontoDependentes())}
-Salário líquido: ${r(this.#calcularSalarioLiquido())}`;
+
+
+
+        
+        Matrícula: ${this.#matricula}
+        Nome: ${this.#nome}
+        Número de dependentes: ${this.#dependentes}
+        Salário base: ${formatarValor(this.#salarioBase)}
+        Gratificação: ${formatarValor(this.#calcularGratificacao())}
+        Salário bruto: ${formatarValor(this.#calcularSalarioBruto())}
+        Desconto INSS: ${formatarValor(this.#calcularDescontoINSS())}
+        Desconto IRPF: ${formatarValor(this.#calcularDescontoIRPF())}
+        Desconto por dependentes: ${formatarValor(this.#calcularDescontoDependentes())}
+        Salário líquido: ${formatarValor(this.#calcularSalarioLiquido())}`;
     }
 }

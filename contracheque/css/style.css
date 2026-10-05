@@ -1,0 +1,26 @@
+body{
+    background-color: #f0f8ff;
+    color: rgb(0, 0, 0);
+}
+
+h1{
+    color: #245a70;
+}
+
+input{
+    background-color: white;
+    border: 1px solid #245a70;
+    border-radius: 5px;
+}
+
+button{
+    background-color: #90f0fd;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    border: 1px solid #245a70;
+}
+
+#saida{
+    background-color: white;
+    border: 1px solid #245a70;
+}
