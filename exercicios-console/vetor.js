@@ -14,7 +14,7 @@ console.log(srt1);
 
 let str4 = "Array= |";
 
-for (const elemento of array){
-    str4 += elemento + "|";
+for (let i = 0; i < array.length; i++) {
+    str4 += array[i] + "|";
 }
 console.log(str4);

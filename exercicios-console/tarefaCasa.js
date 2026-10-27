@@ -6,7 +6,8 @@ function preencherArray(tamanhoArray) {
   const numeros = [];
 
   for (let i = 0; i < tamanhoArray; i++) {
-    numeros.push(Math.floor(Math.random() * 1001));
+    // Gera um número inteiro entre 0 e 1000.
+    numeros[i] = Math.floor(Math.random() * 1001);
   }
 
   return numeros;
@@ -14,5 +15,13 @@ function preencherArray(tamanhoArray) {
 
 const array = preencherArray(tamanhoArray);
 
-console.log(`[${array.join(", ")}]`);
+let texto = "[";
+for (let i = 0; i < array.length; i++) {
+  if (i > 0) {
+    texto += ", ";
+  }
+  texto += array[i];
+}
+texto += "]";
+console.log(texto);
     

@@ -9,8 +9,8 @@ function lerNotas(notas, quantidadeNotas) {
 function calcularMedia(notas) {
     let soma = 0;
 
-    for (const valor of notas) {
-        soma += valor;
+    for (let i = 0; i < notas.length; i++) {
+        soma += notas[i];
     }
 
     return soma / notas.length;
@@ -19,7 +19,8 @@ function calcularMedia(notas) {
 function encontrarMaiorNota(notas) {
     let maiorNota = notas[0];
 
-    for (const nota of notas) {
+    for (let i = 0; i < notas.length; i++) {
+        const nota = notas[i];
         if (nota > maiorNota) {
             maiorNota = nota;
         }
@@ -28,11 +29,11 @@ function encontrarMaiorNota(notas) {
     return maiorNota;
 }
 
-
 function encontrarMenorNota(notas) {
     let menorNota = notas[0];
 
-    for (const nota of notas) {
+    for (let i = 0; i < notas.length; i++) {
+        const nota = notas[i];
         if (nota < menorNota) {
             menorNota= nota;
         }
@@ -41,20 +42,15 @@ function encontrarMenorNota(notas) {
     return menorNota;
 }
 
-function mostrarNotas(notas, media){
-    for(const notinha of notas ){
-        if(notinha>media){
-            console.log("acima da média" + " " +  notinha)
-        }else{
-            console.log("Menor ou igual a média!" + " " +  notinha)
+function mostrarNotas(notas, media) {
+    for (let i = 0; i < notas.length; i++) {
+        if (notas[i] > media) {
+            console.log("acima da média " + notas[i]);
+        } else {
+            console.log("Menor ou igual a média! " + notas[i]);
         }
     }
 }
-
-
-
-
-
 
 let quantidadeNotas = Number(prompt("Quantas notas serão inseridas: "));
 const notas = [];
@@ -72,5 +68,5 @@ console.log(maiorNota);
 const menorNota = encontrarMenorNota(notas);
 console.log(menorNota);
 
-const alguma = mostrarNotas(notas, media);
-console.log(alguma);
+// A função já mostra as notas, então basta chamá-la.
+mostrarNotas(notas, media);

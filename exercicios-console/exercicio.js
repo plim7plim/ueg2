@@ -1,11 +1,14 @@
 const prompt = require("prompt-sync")();
 
+const nomes = [];
+const notas = [];
+
 let soma = 0;
 
 let maior = 0;
 let nomeMaior = "";
 
-let menor = Infinity;
+let menor = 0;
 let nomeMenor = "";
 
 function calculaMedia() {
@@ -15,14 +18,17 @@ function calculaMedia() {
         let nome = prompt("nome : " + i + " : ");
         let nota = Number(prompt("Digite a nota do aluno: " + nome + " : "));
 
+        // Guarda os dados para usar depois, sem perguntar de novo.
+        nomes[i - 1] = nome;
+        notas[i - 1] = nota;
         soma = soma + nota;
 
-        if (nota > maior) {
+        if (i === 1 || nota > maior) {
             maior = nota;
             nomeMaior = nome;
         }
 
-        if (nota < menor) {
+        if (i === 1 || nota < menor) {
             menor = nota;
             nomeMenor = nome;
         }
@@ -41,10 +47,10 @@ function calculaMedia() {
 
     console.log("\n===== ALUNOS =====");
 
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 0; i < notas.length; i++) {
 
-        let nome = prompt("nome : " + i + " : ");
-        let nota = Number(prompt("Digite a nota do aluno: " + nome + " : "));
+        const nome = nomes[i];
+        const nota = notas[i];
 
         if (nota > media) {
             console.log(nome + " acima da média " + nota + " pontos | média " + media);

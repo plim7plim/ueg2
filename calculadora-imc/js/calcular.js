@@ -1,14 +1,6 @@
 const numeroUm = document.getElementById('Numero1');
 const numeroDois = document.getElementById('Numero2');
 
-const btnSomar = document.getElementById('btnSomar');
-const btnSubtrair = document.getElementById('btnSubtrair');
-const btnMultiplicar = document.getElementById('btnMultiplicar');
-const btnDividir = document.getElementById('btnDividir');
-const btnPotencia = document.getElementById('btnPotencia');
-const btnRaiz = document.getElementById('btnRaiz');
-
-
 const saidaResultado = document.getElementById('resultado');
 
 function somar() {
@@ -17,7 +9,7 @@ function somar() {
 
     const soma = num1 + num2;
 
-    saidaResultado.innerHTML = `A soma de ${num1} + ${num2} é: ${soma}`;
+    saidaResultado.innerHTML = "A soma de " + num1 + " + " + num2 + " é: " + soma;
 }
 
 function subtrair() {
@@ -26,7 +18,7 @@ function subtrair() {
 
     const subtracao = num1 - num2;
 
-    saidaResultado.innerHTML = `A subtração de ${num1} - ${num2} é: ${subtracao}`;
+    saidaResultado.innerHTML = "A subtração de " + num1 + " - " + num2 + " é: " + subtracao;
 }
 
 function multiplicar() {
@@ -35,7 +27,7 @@ function multiplicar() {
 
     const multiplicacao = num1 * num2;
 
-    saidaResultado.innerHTML = `A multiplicação de ${num1} × ${num2} é: ${multiplicacao}`;
+    saidaResultado.innerHTML = "A multiplicação de " + num1 + " × " + num2 + " é: " + multiplicacao;
 }
 
 function dividir() {
@@ -44,7 +36,7 @@ function dividir() {
 
     const divisao = num1 / num2;
 
-    saidaResultado.innerHTML = `A divisão de ${num1} ÷ ${num2} é: ${divisao}`;
+    saidaResultado.innerHTML = "A divisão de " + num1 + " ÷ " + num2 + " é: " + divisao;
 }
 
 function potencia() {
@@ -53,7 +45,7 @@ function potencia() {
 
     const potencia = num1 ** num2;
 
-    saidaResultado.innerHTML = `A potência de ${num1} elevado a ${num2} é: ${potencia}`;
+    saidaResultado.innerHTML = "A potência de " + num1 + " elevado a " + num2 + " é: " + potencia;
 }
 
 function raiz() {
@@ -61,5 +53,5 @@ function raiz() {
 
     const raizQuadrada = Math.sqrt(num1);
 
-    saidaResultado.innerHTML = `A raiz quadrada de ${num1} é: ${raizQuadrada}`;
+    saidaResultado.innerHTML = "A raiz quadrada de " + num1 + " é: " + raizQuadrada;
 }
