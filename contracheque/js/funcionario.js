@@ -15,19 +15,19 @@ class Funcionario { //metodos privados
         this.#producao = producao;
     }
 
-    // Define a gratificação de acordo com a quantidade de itens produzidos.
+    // Define de acordo com a quantidade de itens produzidos
     #calcularGratificacao() {
         if (this.#producao <= 1000) return 500.0;
         if (this.#producao <= 2000) return 1250.0;
         return 2250.0;
     }
 
-    // Soma o salário base com a gratificação.
+    // Soma o salário base
     #calcularSalarioBruto() {
         return this.#salarioBase + this.#calcularGratificacao();
     }
 
-    // Escolhe a alíquota pela faixa do salário bruto e calcula o INSS.
+    // Escolhe a alíquota pela faixa do salário bruto e calcula o INSS
     #calcularDescontoINSS() {
         const bruto = this.#calcularSalarioBruto();
         let aliquota;
@@ -38,12 +38,12 @@ class Funcionario { //metodos privados
         return bruto * aliquota;
     }
 
-    // Multiplica o número de dependentes pelo desconto de cada dependente.
+    // Multiplica o número de dependentes pelo desconto de cada dependente
     #calcularDescontoDependentes() {
         return this.#dependentes * DESCONTO_POR_DEPENDENTE;
     }
 
-    // Escolhe a alíquota do IRPF pela faixa do salário bruto.
+    // Escolhe a alíquota do IRPF pela faixa do salário bruto
     #calcularDescontoIRPF() {
         const bruto = this.#calcularSalarioBruto();
         let aliquota;
@@ -53,31 +53,31 @@ class Funcionario { //metodos privados
         else if (bruto <= 4664.68) aliquota = 0.225;
         else aliquota = 0.275;
 
-        // Retira o desconto dos dependentes do valor do imposto.
+        // Retira o desconto dos dependentes do valor do imposto
         const irpf = bruto * aliquota - this.#calcularDescontoDependentes();
         return irpf > 0 ? irpf : 0; // não pode ficar negativo
     }
 
-    // Retira o INSS e o IRPF do salário bruto.
+    // Retira o INSS e o IRPF do salário bruto
     #calcularSalarioLiquido() {
         return this.#calcularSalarioBruto() - this.#calcularDescontoINSS() - this.#calcularDescontoIRPF();
     }
 
-    // Monta o texto do contracheque com os dados e os valores calculados.
+    // Monta o texto do contracheque com os dados e os valores calculados
     gerarContracheque() {
-        // Recebe um valor, coloca R$ antes dele e mostra duas casas decimais.
+        // Recebe um valor, coloca R$ antes dele e mostra duas casas decimais
         function formatarValor(valor) {
             return "R$ " + valor.toFixed(2);
         }
 
-        // As crases permitem escrever um texto com várias linhas.
-        // Dentro de ${...}, o JavaScript calcula a expressão e coloca o resultado no texto.
-        // Exemplo: ${formatarValor(500)} coloca R$ 500.00 no contracheque.
+        // As crases permitem escrever um texto com várias linhas
+        // Dentro de ${...}, o JavaScript calcula a expressão e coloca o resultado no texto
+        // Exemplo: ${formatarValor(500)} coloca R$ 500.00 no contracheque
         return `GYNALIMENTOS - CONTRACHEQUE
 
 
 
-        
+       
         Matrícula: ${this.#matricula}
         Nome: ${this.#nome}
         Número de dependentes: ${this.#dependentes}
@@ -88,5 +88,6 @@ class Funcionario { //metodos privados
         Desconto IRPF: ${formatarValor(this.#calcularDescontoIRPF())}
         Desconto por dependentes: ${formatarValor(this.#calcularDescontoDependentes())}
         Salário líquido: ${formatarValor(this.#calcularSalarioLiquido())}`;
+
     }
 }

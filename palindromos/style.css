@@ -1,0 +1,18 @@
+body{
+    background-color: #f0f8ff;
+    color: black;
+}
+
+h1{
+    color: #245a70;
+}
+
+input, select{
+    border: 1px solid #245a70;
+}
+
+button{
+    background-color: #90f0fd;
+    border: 1px solid #245a70;
+    border-radius: 5px;
+}

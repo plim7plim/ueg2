@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Palíndromos com Pilha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Palíndromos com Pilha</h1>
+    <p>Um palíndromo tem a mesma sequência de trás para frente</p>
+
+    <label for="tipo">Verificar:</label>
+    <select id="tipo">
+        <option value="texto">Palavra, frase ou número</option>
+        <option value="array">Array (valores separados por vírgula)</option>
+    </select> <br><br>
+
+    <label for="texto">Digite os valores:</label>
+    <input type="text" id="texto" onkeydown="if (event.key === 'Enter') verificar()">
+    <p>Exemplos: ARARA, O LOBO AMA O BOLO ou, na opção array, 1, 2, 1</p>
+  
+    <p>No array, cada valor é comparado como foi digitado, ignorando os espaços</p>
+
+    <button type="button" onclick="verificar()">Verificar</button>
+    <button type="button" onclick="limparTela()">Limpar</button>
+    <hr>
+    <pre id="resultado"></pre>
+
+    <h2>Operações da pilha</h2>
+    <label for="elemento">Elemento:</label>
+    <input type="text" id="elemento">
+    <button type="button" onclick="adicionarElemento()">Adicionar (topo + 1)</button>
+    <button type="button" onclick="consultarTopo()">Consultar topo</button>
+    <button type="button" onclick="removerElemento()">Remover (topo - 1)</button>
+    <p id="resultadoPilha">Pilha vazia</p>
+
+    <script src="Pilha.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
