@@ -1,7 +1,6 @@
-// pilha: o último que entra é o primeiro que sai
+
 class Pilha {
-    // # deixa os atributos privados
-    // array guarda os valores e topo guarda a posição do último
+   
     #array;
     #topo;
 

@@ -1,11 +1,4 @@
-// roteiro para lembrar na prova
-// verificar: lê os valores, coloca na pilha e compara com a ordem contrária
-// empilhar: topo + 1 e guarda o valor
-// acessar: pega o valor do topo sem remover
-// desempilhar: topo - 1
-// array começa na posição 0 e topo -1 quer dizer pilha vazia
 
-// pega os campos do html pelo id
 const campoTexto = document.getElementById("texto");
 const campoTipo = document.getElementById("tipo");
 const campoElemento = document.getElementById("elemento");
@@ -15,7 +8,7 @@ const saidaPilha = document.getElementById("resultadoPilha");
 // cria a pilha que os botões vão usar
 let pilha = new Pilha();
 
-// tira os espaços do texto
+
 function retirarEspacos(texto) {
     let resultado = "";
     // length é o tamanho do texto e texto[i] pega uma letra por vez

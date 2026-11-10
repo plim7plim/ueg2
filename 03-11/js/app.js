@@ -13,7 +13,7 @@ function verificarCapicua(numerar) {
     while (numero > 0) { //enquanto numero for maior que 0 empilha o resto da divisão por 10 e divide o numero por 10 
         let resto = numero % 10;
         pilha.empilhar(resto);
-        numero = Math.floor(numero / 10); //pega somente inteiro 
+        numero = Math.floor(numero / 10); //pega somente inteiro de divisoes por 10
     }
 
     let numeroInvertido = 0; //variável para armazenar o número invertido

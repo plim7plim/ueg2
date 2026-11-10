@@ -3,12 +3,7 @@ function gerar() {
     const tamanhoUsuario = Number(document.getElementById("tamanhoUsuario").value);
     const saida = document.getElementById("resultado");
 
-    // a quantidade precisa ser inteira e maior que zero
-    // o resto da divisão por 1 é diferente de zero quando tem parte decimal
-    if (tamanhoUsuario <= 0 || tamanhoUsuario % 1 !== 0) {
-        saida.innerHTML = "Digite uma quantidade inteira maior que zero";
-        return;
-    }
+
 
     const array = [];
     const invertido = [];
