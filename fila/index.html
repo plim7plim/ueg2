@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fila de brnaco</title>
+    <title>Fila</title>
 </head>
 <body>
     <h1>Sistema de fila</h1>
 
     <label for="nome">Nome do cliente:</label>
-    <input type="text" id="nome" placeholder="Digite o nome do cliente">
+    <input type="text" id="nome">
 
-    <button type="button" id="entrar">Incluir</button>
-    <button type="button" id="retirar">retirar</button>
-    <button type="button" id="acessar">Mostrar Fila</button>
+    <button onclick="incluir()">Incluir</button>
+    <button onclick="retirar()">Retirar</button>
+    <button onclick="mostrar()">Mostrar Fila</button>
 
-    <hr>
-
-    <span>Primeiro da fila:</span>
+    <p>Primeiro da fila:</p>
     <p id="primeiro"></p>
 
-    <span>Fila como um todo:</span>
+    <p>Fila como um todo:</p>
     <p id="resultado"></p>
 
-    <script src="./fila.js"></script>
-    <script src="./script.js"></script>
+    <script src="fila.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

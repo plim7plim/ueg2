@@ -1,11 +1,17 @@
-import { fila } from "./fila.js";
+let fila = new Fila();
 
-let nome = document.getElementById("nome");
-let incluir = document.getElementById("entrar");
-let retirar = document.getElementById("retirar");
-let acessar = document.getElementById("acessar");
-let resultado = document.getElementById("resultado");
-let primeiro = document.getElementById("primeiro");
+function incluir() {
+    let nome = document.getElementById("nome").value;
+    fila.enfileirar(nome);
+    mostrar();
+}
 
+function retirar() {
+    fila.desenfileirar();
+    mostrar();
+}
 
-
+function mostrar() {
+    document.getElementById("primeiro").innerHTML = fila.acessar();
+    document.getElementById("resultado").innerHTML = fila.obterDadosFila();
+}
