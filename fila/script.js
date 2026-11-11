@@ -1,17 +1,19 @@
+import { Fila } from "./fila.js";
+
 let fila = new Fila();
 
-function incluir() {
+window.incluir = function () {
     let nome = document.getElementById("nome").value;
     fila.enfileirar(nome);
     mostrar();
 }
 
-function retirar() {
+window.retirar = function () {
     fila.desenfileirar();
     mostrar();
 }
 
-function mostrar() {
+window.mostrar = function () {
     document.getElementById("primeiro").innerHTML = fila.acessar();
     document.getElementById("resultado").innerHTML = fila.obterDadosFila();
 }

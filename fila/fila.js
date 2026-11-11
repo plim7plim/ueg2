@@ -1,4 +1,4 @@
-class Fila {
+export class Fila {
     // Atributos privados da classe Fila
     #array;  // vetor para armazenamento dos dados da fila
     #inicio; // índice do primeiro elemento (frente da fila)
