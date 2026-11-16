@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Fila</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Sistema de fila</h1>
@@ -10,9 +11,8 @@
     <label for="nome">Nome do cliente:</label>
     <input type="text" id="nome">
 
-    <button onclick="incluir()">Incluir</button>
-    <button onclick="retirar()">Retirar</button>
-    <button onclick="mostrar()">Mostrar Fila</button>
+    <button type="button" id="btnIncluir">Incluir</button>
+    <button type="button" id="btnRetirar">Retirar</button>
 
     <p>Primeiro da fila:</p>
     <p id="primeiro"></p>

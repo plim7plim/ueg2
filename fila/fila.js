@@ -32,7 +32,7 @@ export class Fila {
     // Acessar o elemento do início da fila, sem removê-lo
     acessar() {
         if (this.estaVazia()) {
-            throw new Error("Não tem pessoas!");
+            throw new Error("Não há pessoa na fila");
         }
         return this.#array[this.#inicio];
     }
@@ -40,7 +40,7 @@ export class Fila {
     // Remover o elemento do início da fila
     desenfileirar() {
         if (this.estaVazia()) {
-            throw new Error("Não tem pessoas!");
+            throw new Error("Não há pessoa na fila");
         }
         this.#inicio++;
         this.#tamanho--;

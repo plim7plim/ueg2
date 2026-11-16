@@ -1,5 +1,13 @@
 function verificar() {
-    let texto = document.getElementById("texto").value;
+    let original = document.getElementById("texto").value.toLowerCase(); //deixa tudo minusculo igual minha vontade de viver 
+
+    // monta o texto sem os espaços, " " usando essa propriedade 
+    let texto = "";
+    for (let i = 0; i < original.length; i++) {
+        if (original[i] !== " ") {
+            texto += original[i];
+        }
+    }
     let pilha = new Pilha();
 
     // coloca cada letra na pilha
