@@ -13,53 +13,46 @@ const resultado = document.getElementById("resultado");
 let fila = new Fila();
 
 
-btnIncluir.addEventListener("click", incluir);
+btnIncluir.addEventListener("click", incluir); //chamadas bem aquii
 btnRetirar.addEventListener("click", retirar);
 btnAcessar.addEventListener("click", acessar);
 
-mostrarFila(); // já mostra a fila vazia quando abre a página
+mostrarFila();
 
 
-function incluir() {
-    // não deixa incluir nome vazio
-    if (nome.value.trim() === "") {
-        primeiro.innerHTML = "Digite um nome";
-        return;
-    }
-    fila.enfileirar(nome.value);
-    primeiro.innerHTML = nome.value + " entrou na fila";
-    nome.value = "";
-    mostrarFila();
-}
-
-// tira o primeiro da fila
-function retirar() {
-    // se a fila estiver vazia, o desenfileirar lança a exceção
-    try {
-        let quemSaiu = fila.acessar(); // guarda quem é o primeiro antes de tirar
-        fila.desenfileirar();
-        // se a fila ficou vazia, zera ela pra não voltar nome antigo quando incluir de novo
-        if (fila.estaVazia()) fila.limpar();
-        primeiro.innerHTML = quemSaiu + " saiu da fila";
+    function incluir() {
+        // não deixa incluir nome vazio
+        if (nome.value.trim() === "") {
+            primeiro.innerHTML = "Digite um nome";
+            return;  //trata excessão bem aq
+        }
+        fila.enfileirar(nome.value);
+        primeiro.innerHTML = nome.value;
         mostrarFila();
-    } catch (erro) {
-        // mostra a mensagem da exceção na tela
-        primeiro.innerHTML = erro.message;
     }
-}
 
-// mostra só o primeiro da fila, sem tirar ele
-function acessar() {
-    // se a fila estiver vazia, o acessar lança a exceção
-    try {
-        primeiro.innerHTML = fila.acessar();
-    } catch (erro) {
-        // mostra a mensagem da exceção na tela
-        primeiro.innerHTML = erro.message;
+
+    function retirar() {
+        try {
+            let quemSaiu = fila.acessar(); // guarda quem é o primeiro antes de tirar
+            fila.desenfileirar();
+            if (fila.estaVazia()) fila.limpar();
+            primeiro.innerHTML = quemSaiu;
+            mostrarFila();
+        } catch (erro) {
+            primeiro.innerHTML = erro.message;
+        }
     }
-}
 
-// mostra a fila inteira usando o obterDadosFila da classe
-function mostrarFila() {
-    resultado.innerHTML = fila.obterDadosFila();
-}
+    function acessar() {
+        try {
+            primeiro.innerHTML = fila.acessar();
+        } catch (erro) {
+            primeiro.innerHTML = erro.message;
+        }
+    }
+
+
+    function mostrarFila() {
+        resultado.innerHTML = fila.obterDadosFila();
+    }

@@ -44,6 +44,7 @@ export class Fila {
         }
         this.#inicio++;
         this.#tamanho--;
+        
     }
 
     // Esvaziar a fila
