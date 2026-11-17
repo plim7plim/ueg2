@@ -25,14 +25,14 @@ export class Fila {
     // Incluir elemento no final da fila
     enfileirar(elemento) {
         this.#array[++this.#fim] = elemento;
-        if(this.estaVazia()) this.#inicio = 0;
+        if(this.#tamanho === 0) this.#inicio = 0;
         this.#tamanho++;
     }
 
     // Acessar o elemento do início da fila, sem removê-lo
     acessar() {
         if (this.estaVazia()) {
-            throw new Error("Não há pessoa na fila");
+            throw new Error("Fila vazia: não há elemento no início.");
         }
         return this.#array[this.#inicio];
     }
@@ -40,7 +40,7 @@ export class Fila {
     // Remover o elemento do início da fila
     desenfileirar() {
         if (this.estaVazia()) {
-            throw new Error("Não há pessoa na fila");
+            throw new Error("Fila vazia: nada para desenfileirar.");
         }
         this.#inicio++;
         this.#tamanho--;
