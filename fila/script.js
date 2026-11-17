@@ -7,6 +7,7 @@ const btnIncluir = document.getElementById("btnIncluir");
 const btnRetirar = document.getElementById("btnRetirar");
 const btnAcessar = document.getElementById("btnAcessar");
 const primeiro = document.getElementById("primeiro");
+const resultado = document.getElementById("resultado");
 
 
 let fila = new Fila();
@@ -15,6 +16,8 @@ let fila = new Fila();
 btnIncluir.addEventListener("click", incluir);
 btnRetirar.addEventListener("click", retirar);
 btnAcessar.addEventListener("click", acessar);
+
+mostrarFila(); // já mostra a fila vazia quando abre a página
 
 
 function incluir() {
@@ -26,6 +29,7 @@ function incluir() {
     fila.enfileirar(nome.value);
     primeiro.innerHTML = nome.value + " entrou na fila";
     nome.value = "";
+    mostrarFila();
 }
 
 // tira o primeiro da fila
@@ -37,6 +41,7 @@ function retirar() {
         // se a fila ficou vazia, zera ela pra não voltar nome antigo quando incluir de novo
         if (fila.estaVazia()) fila.limpar();
         primeiro.innerHTML = quemSaiu + " saiu da fila";
+        mostrarFila();
     } catch (erro) {
         // mostra a mensagem da exceção na tela
         primeiro.innerHTML = erro.message;
@@ -52,4 +57,9 @@ function acessar() {
         // mostra a mensagem da exceção na tela
         primeiro.innerHTML = erro.message;
     }
+}
+
+// mostra a fila inteira usando o obterDadosFila da classe
+function mostrarFila() {
+    resultado.innerHTML = fila.obterDadosFila();
 }
