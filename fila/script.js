@@ -7,6 +7,7 @@ const btnIncluir = document.getElementById("btnIncluir");
 const btnRetirar = document.getElementById("btnRetirar");
 const primeiro = document.getElementById("primeiro");
 const resultado = document.getElementById("resultado");
+const tamanho = document.getElementById("tamanho");
 
 // cria a fila (começa vazia)
 let fila = new Fila();
@@ -42,6 +43,9 @@ function mostrar() {
         // mostra a mensagem da exceção na tela
         primeiro.innerHTML = erro.message;
     }
+
+    // mostra a quantidade de pessoas na fila
+    tamanho.innerHTML = fila.obterTamanho();
 
     // mostra a fila inteira
     resultado.innerHTML = fila.obterDadosFila();
