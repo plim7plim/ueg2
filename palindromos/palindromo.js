@@ -10,6 +10,12 @@ function verificar() {
             texto += original[i];
         }
     }
+    // se não digitou nada, avisa e para aqui
+    if (texto === "") {
+        document.getElementById("resultado").innerHTML = "Digite uma palavra";
+        return;
+    }
+
     let pilha = new Pilha();
 
     // coloca cada letra na pilha
@@ -17,9 +23,9 @@ function verificar() {
         pilha.empilhar(texto[i]);
     }
 
-    // tira da pilha, o último que entrou sai primeiro
+    // tira da pilha até ela ficar vazia, o último que entrou sai primeiro
     let invertido = "";
-    for (let i = 0; i < texto.length; i++) {
+    while (!pilha.estaVazia()) {
         invertido += pilha.acessar();
         pilha.desempilhar();
     }

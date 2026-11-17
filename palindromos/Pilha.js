@@ -1,36 +1,42 @@
-
 export class Pilha {
-   
-    #array;
-    #topo;
+    // Atributos privados
+    #array
+    #topo
 
-    // começa com array vazio e topo -1
+    // Método Construtor
     constructor() {
-        this.#array = [];
-        this.#topo = -1; // -1 indica que a pilha está vazia
+        this.#array = []; // porque usamos o # aqui por conta de nao ter set nem get?
+        this.#topo = -1;
     }
 
-    // aumenta o topo e guarda o elemento
+    estaVazia() {
+        return (this.#topo === -1)    
+    }
+    
+    obterTamanho() {
+        return (this.#topo + 1);
+    }
+
     empilhar(elemento) {
-        // de -1 vai para 0, que é a primeira posição
-        this.#topo = this.#topo + 1;
-        this.#array[this.#topo] = elemento;
+        this.#array[++this.#topo] = elemento;
     }
 
-    // pega o valor do topo sem remover
     acessar() {
-        if (this.#topo === -1) {
-            return null; // não tem nada para consultar
+        if(this.estaVazia()) {
+            throw new Error("Pilha está vazia");
         }
         return this.#array[this.#topo];
     }
 
-    // diminui o topo para remover o último
     desempilhar() {
-        if (this.#topo === -1) {
-            return null;
+        if(this.estaVazia()) {
+            throw new Error("Pilha está vazia");
         }
-        // o valor antigo fica fora da pilha e o próximo vai ocupar o lugar
-        this.#topo = this.#topo - 1;
+        this.#topo--;
+    }
+
+    limpar() {
+        this.#topo = -1;
+        this.#array = [];
     }
 }
