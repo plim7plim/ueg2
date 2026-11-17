@@ -44,7 +44,6 @@ export class Fila {
         }
         this.#inicio++;
         this.#tamanho--;
-        if (this.estaVazia()) this.limpar(); // se a fila ficou vazia, reinicia os índices
     }
 
     // Esvaziar a fila

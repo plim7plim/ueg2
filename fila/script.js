@@ -34,6 +34,8 @@ function retirar() {
     try {
         let quemSaiu = fila.acessar(); // guarda quem é o primeiro antes de tirar
         fila.desenfileirar();
+        // se a fila ficou vazia, zera ela pra não voltar nome antigo quando incluir de novo
+        if (fila.estaVazia()) fila.limpar();
         primeiro.innerHTML = quemSaiu + " saiu da fila";
     } catch (erro) {
         // mostra a mensagem da exceção na tela
