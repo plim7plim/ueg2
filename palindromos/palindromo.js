@@ -30,3 +30,7 @@ function verificar() {
         document.getElementById("resultado").innerHTML = "Não é palíndromo";
     }
 }
+
+// módulo não deixa a função global, então o onclick do HTML não acha ela.
+// por isso liga o botão aqui pelo addEventListener
+document.getElementById("btnVerificar").addEventListener("click", verificar);
