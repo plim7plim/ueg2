@@ -1,4 +1,4 @@
-// importa a classe Fila do arquivo fila.js
+
 import { Fila } from "./fila.js";
 
 // pega os elementos da tela pelo id
@@ -8,15 +8,16 @@ const btnRetirar = document.getElementById("btnRetirar");
 const primeiro = document.getElementById("primeiro");
 const resultado = document.getElementById("resultado");
 const tamanho = document.getElementById("tamanho");
+const acessar = document.getElementById("acessar")
 
-// cria a fila (começa vazia)
+
 let fila = new Fila();
 
-// quando clicar no botão, chama a função
+
 btnIncluir.addEventListener("click", incluir);
 btnRetirar.addEventListener("click", retirar);
 
-// coloca o nome digitado no final da fila
+
 function incluir() {
     fila.enfileirar(nome.value);
     mostrar();
@@ -49,4 +50,9 @@ function mostrar() {
 
     // mostra a fila inteira
     resultado.innerHTML = fila.obterDadosFila();
+}
+
+
+function acessar(){
+
 }

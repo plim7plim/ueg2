@@ -1,5 +1,5 @@
 
-class Pilha {
+export class Pilha {
    
     #array;
     #topo;

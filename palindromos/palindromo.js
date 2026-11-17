@@ -1,3 +1,5 @@
+import { Pilha } from "./Pilha.js";
+
 function verificar() {
     let original = document.getElementById("texto").value.toLowerCase(); //deixa tudo minusculo igual minha vontade de viver 
 
