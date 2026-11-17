@@ -5,10 +5,8 @@ import { Fila } from "./fila.js";
 const nome = document.getElementById("nome");
 const btnIncluir = document.getElementById("btnIncluir");
 const btnRetirar = document.getElementById("btnRetirar");
+const btnAcessar = document.getElementById("btnAcessar");
 const primeiro = document.getElementById("primeiro");
-const resultado = document.getElementById("resultado");
-const tamanho = document.getElementById("tamanho");
-const acessar = document.getElementById("acessar")
 
 
 let fila = new Fila();
@@ -16,11 +14,13 @@ let fila = new Fila();
 
 btnIncluir.addEventListener("click", incluir);
 btnRetirar.addEventListener("click", retirar);
+btnAcessar.addEventListener("click", acessar);
 
 
 function incluir() {
     fila.enfileirar(nome.value);
-    mostrar();
+    nome.value = "";
+    primeiro.innerHTML = ""; // limpa pra não ficar mostrando o primeiro antigo
 }
 
 // tira o primeiro da fila
@@ -28,15 +28,15 @@ function retirar() {
     // se a fila estiver vazia, o desenfileirar lança a exceção
     try {
         fila.desenfileirar();
-        mostrar();
+        primeiro.innerHTML = ""; // limpa pra não ficar mostrando o primeiro antigo
     } catch (erro) {
         // mostra a mensagem da exceção na tela
         primeiro.innerHTML = erro.message;
     }
 }
 
-// atualiza a tela
-function mostrar() {
+// mostra só o primeiro da fila, sem tirar ele
+function acessar() {
     // se a fila estiver vazia, o acessar lança a exceção
     try {
         primeiro.innerHTML = fila.acessar();
@@ -44,15 +44,4 @@ function mostrar() {
         // mostra a mensagem da exceção na tela
         primeiro.innerHTML = erro.message;
     }
-
-    // mostra a quantidade de pessoas na fila
-    tamanho.innerHTML = fila.obterTamanho();
-
-    // mostra a fila inteira
-    resultado.innerHTML = fila.obterDadosFila();
-}
-
-
-function acessar(){
-
 }
