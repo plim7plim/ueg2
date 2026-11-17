@@ -18,17 +18,23 @@ btnAcessar.addEventListener("click", acessar);
 
 
 function incluir() {
+    // não deixa incluir nome vazio
+    if (nome.value.trim() === "") {
+        primeiro.innerHTML = "Digite um nome";
+        return;
+    }
     fila.enfileirar(nome.value);
+    primeiro.innerHTML = nome.value + " entrou na fila";
     nome.value = "";
-    primeiro.innerHTML = ""; // limpa pra não ficar mostrando o primeiro antigo
 }
 
 // tira o primeiro da fila
 function retirar() {
     // se a fila estiver vazia, o desenfileirar lança a exceção
     try {
+        let quemSaiu = fila.acessar(); // guarda quem é o primeiro antes de tirar
         fila.desenfileirar();
-        primeiro.innerHTML = ""; // limpa pra não ficar mostrando o primeiro antigo
+        primeiro.innerHTML = quemSaiu + " saiu da fila";
     } catch (erro) {
         // mostra a mensagem da exceção na tela
         primeiro.innerHTML = erro.message;
