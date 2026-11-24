@@ -4,6 +4,7 @@ export class Fila {
     #inicio; // índice do primeiro elemento (frente da fila)
     #fim;    // índice do último elemento (final da fila)
     #tamanho; // quantidade de elemento da fila
+    
     // Construtor
     constructor() {
         this.#array = [];
@@ -17,15 +18,11 @@ export class Fila {
         return (this.#tamanho === 0);
     }
 
-    // Quantidade de elementos da fila
-    obterTamanho() {
-        return this.#tamanho;
-    }
 
     // Incluir elemento no final da fila
     enfileirar(elemento) {
         this.#array[++this.#fim] = elemento;
-        if(this.#tamanho === 0) this.#inicio = 0;
+        if(this.estaVazia()) this.#inicio = 0;
         this.#tamanho++;
     }
 
@@ -44,8 +41,9 @@ export class Fila {
         }
         this.#inicio++;
         this.#tamanho--;
-        
-    }
+        if(this.estaVazia()) this.limpar();
+        }
+    
 
     // Esvaziar a fila
     limpar() {
@@ -65,4 +63,5 @@ export class Fila {
         saida += " }";
         return saida;
     }
+
 }

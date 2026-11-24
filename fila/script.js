@@ -1,7 +1,4 @@
-
 import { Fila } from "./fila.js";
-
-// pega os elementos da tela pelo id
 const nome = document.getElementById("nome");
 const btnIncluir = document.getElementById("btnIncluir");
 const btnRetirar = document.getElementById("btnRetirar");
@@ -9,50 +6,42 @@ const btnAcessar = document.getElementById("btnAcessar");
 const primeiro = document.getElementById("primeiro");
 const resultado = document.getElementById("resultado");
 
+const fila = new Fila();
 
-let fila = new Fila();
-
-
-btnIncluir.addEventListener("click", incluir); //chamadas bem aquii
+btnIncluir.addEventListener("click", incluir);
 btnRetirar.addEventListener("click", retirar);
 btnAcessar.addEventListener("click", acessar);
 
-mostrarFila();
+mostrarFila(); // mostra a fila na tela assim que a página abre (ainda vazia)
 
-
-    function incluir() {
-        // não deixa incluir nome vazio
-        if (nome.value.trim() === "") {
-            primeiro.innerHTML = "Digite um nome";
-            return;  //trata excessão bem aq
-        }
+function incluir() {
+    if (nome.value === "") { // não deixa colocar nome vazio 
+        primeiro.innerText = "Digite um nome";
+    } else {
         fila.enfileirar(nome.value);
-        primeiro.innerHTML = nome.value;
-        mostrarFila();
+        mostrarFila(); //tem q chamar toda vez pra fila ser atualizada em tempo real 
     }
+}
 
-
-    function retirar() {
-        try {
-            let quemSaiu = fila.acessar(); // guarda quem é o primeiro antes de tirar
-            fila.desenfileirar();
-            if (fila.estaVazia()) fila.limpar();
-            primeiro.innerHTML = quemSaiu;
-            mostrarFila();
-        } catch (erro) {
-            primeiro.innerHTML = erro.message;
-        }
+function retirar() {
+    if (fila.estaVazia()) {
+        primeiro.innerText = "Fila vazia";
+    } else {
+        primeiro.innerText = fila.acessar(); // mostra quem saiu puxando pela primeira pessoa 
+        fila.desenfileirar(); //desenfileirar faz o array tirar aquela posição, igual o prof explicou no quadro, não deixa de existir só passa a não ser mais contado 
+        mostrarFila(); // de novo pra "em tempo real"
     }
+}
 
-    function acessar() {
-        try {
-            primeiro.innerHTML = fila.acessar();
-        } catch (erro) {
-            primeiro.innerHTML = erro.message;
-        }
+function acessar() {
+    if (fila.estaVazia()) {
+        primeiro.innerText = "Fila vazia";  
+    } else {
+        primeiro.innerText = fila.acessar() + " é o primeiro da fila"; //pega direto o primeiro 
     }
+}
 
-
-    function mostrarFila() {
-        resultado.innerHTML = fila.obterDadosFila();
-    }
+function mostrarFila() {
+    resultado.innerText = fila.obterDadosFila(); //puxa todos
+}
+//fifo first in; first out 
