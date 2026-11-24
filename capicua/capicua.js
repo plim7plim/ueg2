@@ -9,11 +9,6 @@ function verificar() {
         return;
     }
 
-    if (!/^\d+$/.test(numero) || !Number.isSafeInteger(Number(numero))) {
-        document.getElementById("resultado").innerHTML = "Digite um número inteiro válido";
-        return;
-    }
-
     let valor = Number(numero);
     numero = String(valor);
     let pilha = new Pilha();
