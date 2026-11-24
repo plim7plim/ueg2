@@ -9,21 +9,31 @@ function verificar() {
         return;
     }
 
+    if (!/^\d+$/.test(numero) || !Number.isSafeInteger(Number(numero))) {
+        document.getElementById("resultado").innerHTML = "Digite um número inteiro válido";
+        return;
+    }
+
+    let valor = Number(numero);
+    numero = String(valor);
     let pilha = new Pilha();
 
-    // coloca cada número na pilha
-    for (let i = 0; i < numero.length; i++) {
-        pilha.empilhar(numero[i]);
+    // empilha os algarismos do último para o primeiro
+    for (let i = numero.length - 1; i >= 0; i--) {
+        pilha.empilhar(Number(numero[i]));
     }
 
-    // tira da pilha até ela ficar vazia, o último que entrou sai primeiro
-    let invertido = "";
+    // reconstrói o número invertido usando unidades, dezenas, centenas...
+    let invertido = 0;
+    let multiplicador = 1;
+
     while (!pilha.estaVazia()) {
-        invertido += pilha.acessar();
+        invertido += pilha.acessar() * multiplicador;
         pilha.desempilhar();
+        multiplicador *= 10;
     }
 
-    if (numero === invertido) {
+    if (valor === invertido) {
         document.getElementById("resultado").innerHTML = "É capicua";
     } else {
         document.getElementById("resultado").innerHTML = "Não é capicua";
